@@ -88,7 +88,7 @@ export default function AdminDashboard() {
       <div className="flex min-h-screen items-center justify-center bg-background px-6">
         <div className="w-full max-w-sm">
           <div className="mb-8 text-center">
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-accent-strong font-[family-name:var(--font-display)] font-bold text-white">
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-[#A78BFA] font-[family-name:var(--font-display)] font-bold text-white shadow-md shadow-accent/20">
               {WAITLIST_CONFIG.logoEmoji}
             </div>
             <h1 className="font-[family-name:var(--font-display)] text-2xl font-bold text-foreground">
@@ -112,23 +112,23 @@ export default function AdminDashboard() {
               autoFocus
             />
             {passwordError && (
-              <p className="mb-3 text-sm text-red-400">
+              <p className="mb-3 text-sm text-red-500">
                 Incorrect password. Try again.
               </p>
             )}
             <button
               type="submit"
-              className="w-full rounded-xl bg-accent px-4 py-3 font-[family-name:var(--font-display)] font-semibold text-white transition-colors hover:bg-accent-strong"
+              className="btn-gradient w-full rounded-xl px-4 py-3 font-[family-name:var(--font-display)] font-semibold text-white"
             >
               Sign In
             </button>
           </form>
 
           <p className="mt-6 text-center text-xs text-muted">
-            Default password: <code className="text-accent">admin123</code>
+            Default password: <code className="rounded bg-accent-light px-1.5 py-0.5 text-accent">admin123</code>
             <br />
             Change it in{" "}
-            <code className="text-accent">lib/config.ts</code>
+            <code className="rounded bg-accent-light px-1.5 py-0.5 text-accent">lib/config.ts</code>
           </p>
         </div>
       </div>
@@ -139,10 +139,10 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-[var(--border)] bg-surface/50">
+      <header className="border-b border-[var(--border)] bg-white/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent-strong font-[family-name:var(--font-display)] text-xs font-bold text-white">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-[#A78BFA] font-[family-name:var(--font-display)] text-xs font-bold text-white">
               {WAITLIST_CONFIG.logoEmoji}
             </div>
             <div>
@@ -153,7 +153,7 @@ export default function AdminDashboard() {
           </div>
           <a
             href="/"
-            className="rounded-lg border border-[var(--border)] px-3 py-1.5 text-sm text-muted transition-colors hover:text-foreground"
+            className="rounded-lg border border-[var(--border)] bg-surface px-3 py-1.5 text-sm text-muted transition-colors hover:text-foreground"
           >
             &larr; Back to site
           </a>
@@ -168,16 +168,19 @@ export default function AdminDashboard() {
               label: "Total Signups",
               value: stats.total.toLocaleString(),
               color: "text-accent",
+              bg: "bg-accent-light/50",
             },
             {
               label: "Today",
               value: stats.todaySignups.toLocaleString(),
               color: "text-success",
+              bg: "bg-emerald-50",
             },
             {
               label: "Total Referrals",
               value: stats.totalReferrals.toLocaleString(),
               color: "text-warning",
+              bg: "bg-amber-50",
             },
             {
               label: "Top Referrer",
@@ -186,11 +189,12 @@ export default function AdminDashboard() {
                 : "—",
               subtitle: stats.topReferrer?.email,
               color: "text-[#F472B6]",
+              bg: "bg-pink-50",
             },
           ].map((stat, i) => (
             <div
               key={i}
-              className="rounded-2xl border border-[var(--border)] bg-surface p-5"
+              className="card-soft rounded-2xl border border-[var(--border)] p-5"
             >
               <p className="text-sm text-muted">{stat.label}</p>
               <p
@@ -254,11 +258,11 @@ export default function AdminDashboard() {
         </div>
 
         {/* Table */}
-        <div className="overflow-hidden rounded-2xl border border-[var(--border)]">
+        <div className="card-soft overflow-hidden rounded-2xl border border-[var(--border)]">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-[var(--border)] bg-surface">
+                <tr className="border-b border-[var(--border)] bg-surface-light/50">
                   <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted">
                     #
                   </th>
@@ -295,7 +299,7 @@ export default function AdminDashboard() {
                   filteredEntries.map((entry) => (
                     <tr
                       key={entry.id}
-                      className="transition-colors hover:bg-surface/80"
+                      className="transition-colors hover:bg-surface-light/40"
                     >
                       <td className="px-4 py-3 text-sm text-muted">
                         {entry.position}
@@ -304,7 +308,7 @@ export default function AdminDashboard() {
                         {entry.email}
                       </td>
                       <td className="px-4 py-3">
-                        <code className="rounded bg-surface-light px-2 py-0.5 text-xs text-accent">
+                        <code className="rounded-md bg-accent-light/50 px-2 py-0.5 text-xs text-accent">
                           {entry.referralCode}
                         </code>
                       </td>
@@ -321,7 +325,7 @@ export default function AdminDashboard() {
                       </td>
                       <td className="hidden px-4 py-3 text-sm text-muted sm:table-cell">
                         {entry.referredBy ? (
-                          <code className="rounded bg-surface-light px-2 py-0.5 text-xs">
+                          <code className="rounded-md bg-surface-light px-2 py-0.5 text-xs">
                             {entry.referredBy}
                           </code>
                         ) : (

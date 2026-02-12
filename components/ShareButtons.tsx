@@ -59,25 +59,25 @@ export function ShareButtons({ referralLink }: ShareButtonsProps) {
       name: "X (Twitter)",
       icon: <TwitterIcon />,
       href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(twitterText)}`,
-      color: "hover:bg-[#1DA1F2]/10 hover:text-[#1DA1F2] hover:border-[#1DA1F2]/30",
+      color: "hover:bg-gray-900/[0.06] hover:text-gray-900 hover:border-gray-300",
     },
     {
       name: "LinkedIn",
       icon: <LinkedInIcon />,
       href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(linkedinUrl)}`,
-      color: "hover:bg-[#0A66C2]/10 hover:text-[#0A66C2] hover:border-[#0A66C2]/30",
+      color: "hover:bg-[#0A66C2]/[0.06] hover:text-[#0A66C2] hover:border-[#0A66C2]/30",
     },
     {
       name: "WhatsApp",
       icon: <WhatsAppIcon />,
       href: `https://wa.me/?text=${encodeURIComponent(whatsappText)}`,
-      color: "hover:bg-[#25D366]/10 hover:text-[#25D366] hover:border-[#25D366]/30",
+      color: "hover:bg-[#25D366]/[0.06] hover:text-[#25D366] hover:border-[#25D366]/30",
     },
     {
       name: "Email",
       icon: <EmailIcon />,
       href: `mailto:?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`,
-      color: "hover:bg-accent/10 hover:text-accent hover:border-accent/30",
+      color: "hover:bg-accent/[0.06] hover:text-accent hover:border-accent/30",
     },
   ];
 
@@ -89,7 +89,7 @@ export function ShareButtons({ referralLink }: ShareButtonsProps) {
           href={link.href}
           target={link.name === "Email" ? undefined : "_blank"}
           rel={link.name === "Email" ? undefined : "noopener noreferrer"}
-          className={`flex items-center gap-2 rounded-xl border border-[var(--border)] bg-surface px-4 py-2.5 text-sm font-medium text-muted transition-all duration-200 ${link.color}`}
+          className={`card-soft flex items-center gap-2 rounded-xl border border-[var(--border)] px-4 py-2.5 text-sm font-medium text-muted transition-all duration-200 ${link.color}`}
         >
           {link.icon}
           <span className="hidden sm:inline">{link.name}</span>

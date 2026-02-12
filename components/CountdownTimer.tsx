@@ -24,7 +24,13 @@ function calculateTimeLeft(targetDate: string): TimeLeft {
   };
 }
 
-export function CountdownTimer({ targetDate }: { targetDate: string }) {
+export function CountdownTimer({
+  targetDate,
+  compact = false,
+}: {
+  targetDate: string;
+  compact?: boolean;
+}) {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 0,
     hours: 0,
@@ -49,12 +55,13 @@ export function CountdownTimer({ targetDate }: { targetDate: string }) {
       <div className="flex gap-3 sm:gap-4">
         {[0, 1, 2, 3].map((i) => (
           <div key={i} className="flex flex-col items-center">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-surface-light sm:h-20 sm:w-20">
-              <span className="font-[family-name:var(--font-display)] text-2xl font-bold text-muted sm:text-3xl">
+            <div
+              className={`flex items-center justify-center rounded-2xl bg-surface ${compact ? "h-14 w-14 sm:h-16 sm:w-16" : "h-18 w-18 sm:h-22 sm:w-22"}`}
+            >
+              <span className="font-[family-name:var(--font-display)] text-2xl font-bold text-muted">
                 --
               </span>
             </div>
-            <span className="mt-2 text-xs text-muted sm:text-sm">---</span>
           </div>
         ))}
       </div>
@@ -68,21 +75,29 @@ export function CountdownTimer({ targetDate }: { targetDate: string }) {
     { label: "Sec", value: timeLeft.seconds },
   ];
 
+  const boxSize = compact
+    ? "h-14 w-14 sm:h-16 sm:w-16"
+    : "h-[72px] w-[72px] sm:h-[88px] sm:w-[88px]";
+  const textSize = compact
+    ? "text-xl sm:text-2xl"
+    : "text-2xl sm:text-[34px]";
+
   return (
     <div className="flex gap-3 sm:gap-4">
-      {units.map((unit, i) => (
+      {units.map((unit) => (
         <div key={unit.label} className="flex flex-col items-center">
           <div
-            className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl border border-[var(--border)] bg-surface-light sm:h-20 sm:w-20"
-            style={{ animationDelay: `${i * 100}ms` }}
+            className={`card-soft relative flex items-center justify-center overflow-hidden rounded-2xl border border-[var(--border)] ${boxSize}`}
           >
-            {/* Subtle top highlight */}
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
-            <span className="font-[family-name:var(--font-display)] text-2xl font-bold tabular-nums text-foreground sm:text-3xl">
+            {/* Top accent line */}
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+            <span
+              className={`relative font-[family-name:var(--font-display)] font-bold tabular-nums tracking-tight text-foreground ${textSize}`}
+            >
               {String(unit.value).padStart(2, "0")}
             </span>
           </div>
-          <span className="mt-2 text-xs font-medium uppercase tracking-wider text-muted sm:text-sm">
+          <span className="mt-2.5 text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
             {unit.label}
           </span>
         </div>
