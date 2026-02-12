@@ -3,15 +3,15 @@
 > A high-converting waitlist template with built-in referral mechanics and reward tiers.
 
 ## Brand Identity
-- **Theme:** Light, friendly, approachable with soft violet-lavender accents
-- **Primary Color:** Vibrant Violet (#7C5CFC) with deeper variant (#6D4AFF)
-- **Gradient Accent:** Violet → Lavender → Pink (#7C5CFC → #A78BFA → #F472B6)
-- **Success Color:** Fresh Green (#22C55E)
-- **Warning/Gold Color:** Warm Amber (#F59E0B)
-- **Background:** Light lavender-white (#FAFAFF)
-- **Surfaces:** White (#FFFFFF) with light lavender variant (#F5F3FF)
+- **Theme:** Light, clean, red & white with warm rose-orange accents
+- **Primary Color:** Rose Red (#E11D48) with deeper variant (#BE123C)
+- **Gradient Accent:** Red → Rose → Orange (#E11D48 → #F43F5E → #FB923C)
+- **Success Color:** Fresh Green (#16A34A)
+- **Warning/Gold Color:** Warm Orange (#EA580C)
+- **Background:** Warm off-white (#FFFBFB)
+- **Surfaces:** White (#FFFFFF) with light rose variant (#FFF5F5)
 - **Fonts:** Space Grotesk (headings) + DM Sans (body)
-- **Effects:** Soft shadow cards, morphing pastel blobs, floating dots, gradient border accents, gradient buttons
+- **Effects:** Soft shadow cards, morphing rose/orange pastel blobs, floating dots, gradient border accents, gradient buttons
 
 ## Pages
 - **Waitlist Page** (`/`) — Main landing page with email capture, countdown timer, referral system, reward tiers, FAQ, and social proof
@@ -20,14 +20,14 @@
 ## Key Features
 - **Email capture** with validation and duplicate detection in a white card with soft shadow
 - **Referral system** — each signup gets a unique share link with copy button
-- **Position counter** — shows "You're #X" with violet-pink gradient text after signup
-- **Reward tiers** — 4 milestone rewards (3, 10, 25, 50 referrals) with pastel color theming (violet, emerald, amber, rose)
+- **Position counter** — shows "You're #X" with red-to-orange gradient text after signup
+- **Reward tiers** — 4 milestone rewards (3, 10, 25, 50 referrals) with pastel color theming (rose, emerald, amber, rose)
 - **Countdown timer** — live countdown with soft shadow cards (compact mode post-signup)
 - **Social proof** — animated counting counter with stacked colorful avatar indicators
 - **Social sharing** — pre-written share messages for X/Twitter, LinkedIn, WhatsApp, and Email
 - **Interactive FAQ** — collapsible accordion with smooth CSS transitions
-- **Stats bar** — 3 icon cards with colored backgrounds (violet, pink, amber)
-- **How It Works** — 3-step color-coded cards (violet, pink, amber) with connecting gradient line
+- **Stats bar** — 3 icon cards with colored backgrounds (red, rose, amber)
+- **How It Works** — 3-step color-coded cards (red, rose, amber) with connecting gradient line
 - **Admin dashboard** — search, stats overview, CSV export (linked in footer)
 - **Visual effects** — morphing pastel background blobs, floating dots, soft card shadows with hover lift, gradient buttons with color shift
 
@@ -119,3 +119,21 @@ lib/
 - **White frosted navbar** with backdrop blur
 - **Added 4 new sections:** Feature Preview (6 features in 3-col grid), Testimonials (3 quote cards with stars), Team (3 members with bios), Trusted By (5 company name logos)
 - All new section data is customizable in `lib/config.ts`
+- **Red & white theme:** Switched entire color palette from violet-lavender to red-rose-orange
+- **New accent:** Rose red (#E11D48) with warm orange (#FB923C) gradient accents
+- **Updated all components:** Hero blobs, floating dots, avatars, stats, reward tiers, team, testimonials, admin dashboard — all consistent red/white theme
+- **Gradient buttons** now red → rose → orange with hover color shift
+- **Polish & professional upgrade:**
+  - Dot grid texture in hero background for depth
+  - Stronger, more visible background blobs and floating dots
+  - Button glow effect on CTAs for emphasis
+  - Feature cards with subtle red top border accent
+  - Testimonial cards with decorative quote marks
+  - Team avatars with white ring borders
+  - FAQ items with left accent border on hover
+  - Gradient section dividers between major sections
+  - CTA banner with stronger gradient, floating dots, and glowing button
+  - Footer gradient divider replacing flat border
+  - Tighter section padding throughout for better visual density
+  - Card hover now transitions border color for refined interaction
+  - Trusted By logos with separator dots between names

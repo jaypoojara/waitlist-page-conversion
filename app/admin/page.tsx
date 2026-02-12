@@ -88,7 +88,7 @@ export default function AdminDashboard() {
       <div className="flex min-h-screen items-center justify-center bg-background px-6">
         <div className="w-full max-w-sm">
           <div className="mb-8 text-center">
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-[#A78BFA] font-[family-name:var(--font-display)] font-bold text-white shadow-md shadow-accent/20">
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-[#F43F5E] font-[family-name:var(--font-display)] font-bold text-white shadow-md shadow-accent/20">
               {WAITLIST_CONFIG.logoEmoji}
             </div>
             <h1 className="font-[family-name:var(--font-display)] text-2xl font-bold text-foreground">
@@ -142,7 +142,7 @@ export default function AdminDashboard() {
       <header className="border-b border-[var(--border)] bg-white/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-[#A78BFA] font-[family-name:var(--font-display)] text-xs font-bold text-white">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-[#F43F5E] font-[family-name:var(--font-display)] text-xs font-bold text-white">
               {WAITLIST_CONFIG.logoEmoji}
             </div>
             <div>
@@ -188,8 +188,8 @@ export default function AdminDashboard() {
                 ? `${stats.topReferrer.referralCount}`
                 : "—",
               subtitle: stats.topReferrer?.email,
-              color: "text-[#F472B6]",
-              bg: "bg-pink-50",
+              color: "text-[#F43F5E]",
+              bg: "bg-rose-50",
             },
           ].map((stat, i) => (
             <div

@@ -42,7 +42,7 @@ function FaqItem({ q, a, delay }: { q: string; a: string; delay: number }) {
 
   return (
     <div
-      className="will-animate animate-slide-up card-soft overflow-hidden rounded-2xl border border-[var(--border)] transition-all duration-300"
+      className="will-animate animate-slide-up card-soft overflow-hidden rounded-2xl border border-[var(--border)] border-l-2 border-l-transparent transition-all duration-300 hover:border-l-accent/40"
       style={{ animationDelay: `${delay}ms` }}
     >
       <button
@@ -162,7 +162,7 @@ export function WaitlistApp() {
       <nav className="fixed top-0 right-0 left-0 z-50 border-b border-[var(--border)] bg-white/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-[#A78BFA] font-[family-name:var(--font-display)] text-sm font-bold text-white shadow-md shadow-accent/20">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-[#F43F5E] font-[family-name:var(--font-display)] text-sm font-bold text-white shadow-md shadow-accent/20">
               {WAITLIST_CONFIG.logoEmoji}
             </div>
             <span className="font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight">
@@ -194,23 +194,27 @@ export function WaitlistApp() {
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20">
         {/* Animated background blobs */}
         <div className="pointer-events-none absolute inset-0">
+          {/* Dot grid texture */}
+          <div className="dot-grid absolute inset-0 opacity-50" />
           {/* Primary blob — top right */}
           <div className="absolute -right-20 -top-20 h-[500px] w-[500px]">
-            <div className="animate-blob h-full w-full bg-gradient-to-br from-violet-200/50 to-pink-200/30 blur-[80px]" />
+            <div className="animate-blob h-full w-full bg-gradient-to-br from-rose-200/70 to-orange-200/40 blur-[80px]" />
           </div>
           {/* Secondary blob — bottom left */}
           <div className="absolute -bottom-20 -left-20 h-[400px] w-[400px]">
-            <div className="animate-blob h-full w-full bg-gradient-to-br from-blue-200/40 to-indigo-200/30 blur-[80px]" style={{ animationDelay: "3s" }} />
+            <div className="animate-blob h-full w-full bg-gradient-to-br from-red-200/50 to-rose-200/40 blur-[80px]" style={{ animationDelay: "3s" }} />
           </div>
           {/* Small accent blob — center */}
           <div className="absolute left-1/2 top-1/3 h-[250px] w-[250px] -translate-x-1/2">
-            <div className="animate-breathe h-full w-full rounded-full bg-accent/[0.06] blur-[60px]" />
+            <div className="animate-breathe h-full w-full rounded-full bg-accent/[0.08] blur-[60px]" />
           </div>
           {/* Floating dots */}
-          <div className="animate-float absolute left-[20%] top-[25%] h-2 w-2 rounded-full bg-accent/20" />
-          <div className="animate-float absolute left-[75%] top-[20%] h-1.5 w-1.5 rounded-full bg-pink-400/25" style={{ animationDelay: "1s" }} />
-          <div className="animate-float absolute left-[65%] top-[65%] h-2 w-2 rounded-full bg-indigo-300/20" style={{ animationDelay: "2s" }} />
-          <div className="animate-float absolute left-[15%] top-[60%] h-1.5 w-1.5 rounded-full bg-violet-400/20" style={{ animationDelay: "3s" }} />
+          <div className="animate-float absolute left-[20%] top-[25%] h-2.5 w-2.5 rounded-full bg-accent/25" />
+          <div className="animate-float absolute left-[75%] top-[20%] h-2 w-2 rounded-full bg-rose-400/30" style={{ animationDelay: "1s" }} />
+          <div className="animate-float absolute left-[65%] top-[65%] h-2.5 w-2.5 rounded-full bg-red-300/25" style={{ animationDelay: "2s" }} />
+          <div className="animate-float absolute left-[15%] top-[60%] h-2 w-2 rounded-full bg-orange-300/25" style={{ animationDelay: "3s" }} />
+          <div className="animate-float absolute left-[50%] top-[15%] h-1.5 w-1.5 rounded-full bg-accent/15" style={{ animationDelay: "4s" }} />
+          <div className="animate-float absolute left-[85%] top-[50%] h-1.5 w-1.5 rounded-full bg-rose-300/20" style={{ animationDelay: "2.5s" }} />
         </div>
 
         <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
@@ -235,7 +239,7 @@ export function WaitlistApp() {
                     return (
                       <span
                         key={i}
-                        className="animate-gradient bg-gradient-to-r from-accent via-[#A78BFA] to-[#F472B6] bg-clip-text text-transparent"
+                        className="animate-gradient bg-gradient-to-r from-accent via-[#F43F5E] to-[#FB923C] bg-clip-text text-transparent"
                       >
                         {word}{" "}
                       </span>
@@ -246,7 +250,7 @@ export function WaitlistApp() {
               </h1>
 
               {/* Subtitle */}
-              <p className="will-animate animate-slide-up delay-100 mx-auto mb-10 max-w-lg text-lg leading-relaxed text-muted">
+              <p className="will-animate animate-slide-up delay-100 mx-auto mb-8 max-w-lg text-lg leading-relaxed text-muted">
                 {WAITLIST_CONFIG.description}
               </p>
 
@@ -270,7 +274,7 @@ export function WaitlistApp() {
                     />
                     <button
                       type="submit"
-                      className="btn-gradient shrink-0 rounded-xl px-7 py-3.5 font-[family-name:var(--font-display)] text-[15px] font-semibold text-white"
+                      className="btn-gradient btn-glow shrink-0 rounded-xl px-7 py-3.5 font-[family-name:var(--font-display)] text-[15px] font-semibold text-white"
                     >
                       Join Waitlist
                     </button>
@@ -286,11 +290,11 @@ export function WaitlistApp() {
                   <div className="mt-5 flex items-center justify-center gap-3 border-t border-[var(--border)] pt-5">
                     <div className="flex -space-x-2">
                       {[
-                        "from-violet-400 to-indigo-500",
+                        "from-rose-400 to-red-500",
                         "from-amber-400 to-orange-500",
                         "from-emerald-400 to-teal-500",
-                        "from-rose-400 to-pink-500",
-                        "from-sky-400 to-blue-500",
+                        "from-red-400 to-rose-500",
+                        "from-orange-400 to-amber-500",
                       ].map((gradient, i) => (
                         <div
                           key={i}
@@ -309,7 +313,7 @@ export function WaitlistApp() {
               </div>
 
               {/* Countdown */}
-              <div className="will-animate animate-slide-up delay-400 mt-14 flex flex-col items-center">
+              <div className="will-animate animate-slide-up delay-400 mt-10 flex flex-col items-center">
                 <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted">
                   Launching in
                 </p>
@@ -329,7 +333,7 @@ export function WaitlistApp() {
                   </div>
                 )}
                 <h1 className="mb-3 font-[family-name:var(--font-display)] text-5xl font-bold tracking-tight sm:text-6xl">
-                  You&apos;re <span className="bg-gradient-to-r from-accent via-[#A78BFA] to-[#F472B6] bg-clip-text text-transparent">#{currentUser?.position.toLocaleString()}</span>
+                  You&apos;re <span className="bg-gradient-to-r from-accent via-[#F43F5E] to-[#FB923C] bg-clip-text text-transparent">#{currentUser?.position.toLocaleString()}</span>
                 </h1>
                 <p className="text-lg text-muted">
                   {currentUser
@@ -408,7 +412,7 @@ export function WaitlistApp() {
       </section>
 
       {/* ========== STATS BAR ========== */}
-      <section className="relative border-y border-[var(--border)] bg-surface-light/50 py-14">
+      <section className="relative border-y border-[var(--border)] bg-surface-light/50 py-10">
         <div className="relative mx-auto grid max-w-5xl grid-cols-3 gap-6 px-6">
           {[
             {
@@ -425,8 +429,8 @@ export function WaitlistApp() {
             {
               value: `${daysUntilLaunch}`,
               label: "Days until launch",
-              color: "text-[#F472B6]",
-              bg: "bg-pink-50",
+              color: "text-[#F43F5E]",
+              bg: "bg-rose-50",
               icon: (
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -459,30 +463,36 @@ export function WaitlistApp() {
       </section>
 
       {/* ========== TRUSTED BY / LOGOS ========== */}
-      <section className="py-16">
+      <section className="py-12">
         <div className="mx-auto max-w-5xl px-6">
-          <p className="mb-10 text-center text-[11px] font-semibold uppercase tracking-[0.25em] text-muted/70">
+          <p className="mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.25em] text-muted/60">
             Featured in
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+          <div className="flex flex-wrap items-center justify-center gap-y-4">
             {WAITLIST_CONFIG.trustedBy.map((company, i) => (
-              <div
-                key={company.name}
-                className="will-animate animate-fade-in text-xl font-[family-name:var(--font-display)] font-bold tracking-tight text-muted/30 transition-colors hover:text-muted/50"
-                style={{ animationDelay: `${200 + i * 100}ms` }}
-              >
-                {company.name}
+              <div key={company.name} className="flex items-center">
+                <div
+                  className="will-animate animate-fade-in text-[22px] font-[family-name:var(--font-display)] font-bold tracking-tight text-muted/25 transition-colors hover:text-muted/50"
+                  style={{ animationDelay: `${200 + i * 100}ms` }}
+                >
+                  {company.name}
+                </div>
+                {i < WAITLIST_CONFIG.trustedBy.length - 1 && (
+                  <span className="mx-6 h-1 w-1 rounded-full bg-muted/20 sm:mx-8" />
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      <div className="section-divider mx-auto max-w-3xl" />
+
       {/* ========== FEATURE PREVIEW ========== */}
-      <section className="relative py-24 sm:py-28">
+      <section className="relative py-20 sm:py-24">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-surface-light/50 to-transparent" />
         <div className="relative mx-auto max-w-5xl px-6">
-          <div className="mb-16 text-center">
+          <div className="mb-14 text-center">
             <p className="will-animate animate-slide-up mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
               Coming Soon
             </p>
@@ -498,10 +508,10 @@ export function WaitlistApp() {
             {WAITLIST_CONFIG.features.map((feature, i) => (
               <div
                 key={feature.title}
-                className="will-animate animate-slide-up card-soft group rounded-2xl border border-[var(--border)] p-6 transition-all duration-300"
+                className="will-animate animate-slide-up card-soft group rounded-2xl border border-[var(--border)] border-t-2 border-t-accent/15 p-6 transition-all duration-300 hover:border-t-accent/30"
                 style={{ animationDelay: `${250 + i * 100}ms` }}
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent-light/50 text-2xl transition-transform duration-300 group-hover:scale-110">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent-light/60 text-2xl transition-transform duration-300 group-hover:scale-110">
                   {feature.icon}
                 </div>
                 <h3 className="mb-2 font-[family-name:var(--font-display)] text-[15px] font-semibold text-foreground">
@@ -517,9 +527,9 @@ export function WaitlistApp() {
       </section>
 
       {/* ========== HOW REFERRALS WORK ========== */}
-      <section className="py-24 sm:py-28">
+      <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-5xl px-6">
-          <div className="mb-16 text-center">
+          <div className="mb-14 text-center">
             <p className="will-animate animate-slide-up mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
               How it works
             </p>
@@ -533,7 +543,7 @@ export function WaitlistApp() {
 
           <div className="relative grid gap-6 sm:grid-cols-3">
             {/* Connecting line (desktop only) */}
-            <div className="pointer-events-none absolute left-0 right-0 top-[72px] hidden h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent sm:block" />
+            <div className="pointer-events-none absolute left-0 right-0 top-[72px] hidden h-[2px] bg-gradient-to-r from-transparent via-accent/30 to-transparent sm:block" />
 
             {[
               {
@@ -552,8 +562,8 @@ export function WaitlistApp() {
                 step: "02",
                 title: "Share your link",
                 description: "Send it to friends who would love what we're building",
-                color: "text-[#F472B6]",
-                bg: "bg-pink-50",
+                color: "text-[#F43F5E]",
+                bg: "bg-rose-50",
                 icon: (
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
@@ -601,10 +611,10 @@ export function WaitlistApp() {
       </section>
 
       {/* ========== REWARD TIERS ========== */}
-      <section className="relative py-24 sm:py-28">
+      <section className="relative py-20 sm:py-24">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-surface-light/60 to-transparent" />
         <div className="relative mx-auto max-w-5xl px-6">
-          <div className="mb-16 text-center">
+          <div className="mb-14 text-center">
             <p className="will-animate animate-slide-up mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
               Rewards
             </p>
@@ -623,10 +633,12 @@ export function WaitlistApp() {
         </div>
       </section>
 
+      <div className="section-divider mx-auto max-w-3xl" />
+
       {/* ========== TESTIMONIALS ========== */}
-      <section className="py-24 sm:py-28">
+      <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-5xl px-6">
-          <div className="mb-16 text-center">
+          <div className="mb-14 text-center">
             <p className="will-animate animate-slide-up mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
               What people are saying
             </p>
@@ -641,15 +653,15 @@ export function WaitlistApp() {
           <div className="grid gap-6 sm:grid-cols-3">
             {WAITLIST_CONFIG.testimonials.map((testimonial, i) => {
               const avatarColors = [
-                "from-violet-400 to-indigo-500",
-                "from-pink-400 to-rose-500",
-                "from-amber-400 to-orange-500",
+                "from-rose-400 to-red-500",
+                "from-orange-400 to-amber-500",
+                "from-red-400 to-rose-500",
               ];
 
               return (
                 <div
                   key={testimonial.name}
-                  className="will-animate animate-slide-up card-soft flex flex-col rounded-2xl border border-[var(--border)] p-6"
+                  className="will-animate animate-slide-up card-soft quote-mark relative flex flex-col overflow-hidden rounded-2xl border border-[var(--border)] p-6"
                   style={{ animationDelay: `${300 + i * 120}ms` }}
                 >
                   {/* Stars */}
@@ -684,10 +696,10 @@ export function WaitlistApp() {
       </section>
 
       {/* ========== TEAM ========== */}
-      <section className="relative py-24 sm:py-28">
+      <section className="relative py-20 sm:py-24">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-surface-light/40 to-transparent" />
         <div className="relative mx-auto max-w-5xl px-6">
-          <div className="mb-16 text-center">
+          <div className="mb-14 text-center">
             <p className="will-animate animate-slide-up mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
               Meet the team
             </p>
@@ -702,9 +714,9 @@ export function WaitlistApp() {
           <div className="grid gap-6 sm:grid-cols-3">
             {WAITLIST_CONFIG.team.map((member, i) => {
               const avatarColors = [
-                "from-accent to-[#A78BFA]",
+                "from-accent to-[#F43F5E]",
                 "from-emerald-400 to-teal-500",
-                "from-[#F472B6] to-rose-500",
+                "from-[#FB923C] to-orange-500",
               ];
 
               return (
@@ -714,7 +726,7 @@ export function WaitlistApp() {
                   style={{ animationDelay: `${300 + i * 120}ms` }}
                 >
                   {/* Avatar */}
-                  <div className={`mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br text-xl font-bold text-white shadow-lg transition-transform duration-300 group-hover:scale-105 ${avatarColors[i % avatarColors.length]}`}>
+                  <div className={`mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br text-xl font-bold text-white shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:scale-105 ${avatarColors[i % avatarColors.length]}`}>
                     {member.avatar}
                   </div>
 
@@ -734,10 +746,12 @@ export function WaitlistApp() {
         </div>
       </section>
 
+      <div className="section-divider mx-auto max-w-3xl" />
+
       {/* ========== FAQ ========== */}
-      <section className="py-24 sm:py-28">
+      <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-2xl px-6">
-          <div className="mb-14 text-center">
+          <div className="mb-12 text-center">
             <p className="will-animate animate-slide-up mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
               FAQ
             </p>
@@ -778,19 +792,26 @@ export function WaitlistApp() {
 
       {/* ========== CTA BANNER ========== */}
       {!isSignedUp && (
-        <section className="relative overflow-hidden py-24">
-          {/* Soft gradient background */}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent-light/40 via-pink-50/30 to-surface-light/50" />
+        <section className="relative overflow-hidden py-20">
+          {/* Stronger gradient background */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent-light/60 via-rose-50/50 to-accent-light/30" />
+          {/* Decorative floating dots */}
+          <div className="pointer-events-none absolute inset-0">
+            <div className="animate-float absolute left-[10%] top-[20%] h-2 w-2 rounded-full bg-accent/15" />
+            <div className="animate-float absolute left-[85%] top-[30%] h-2.5 w-2.5 rounded-full bg-rose-400/15" style={{ animationDelay: "1.5s" }} />
+            <div className="animate-float absolute left-[25%] top-[75%] h-1.5 w-1.5 rounded-full bg-orange-300/15" style={{ animationDelay: "3s" }} />
+            <div className="animate-float absolute left-[70%] top-[70%] h-2 w-2 rounded-full bg-accent/10" style={{ animationDelay: "2s" }} />
+          </div>
           <div className="relative mx-auto max-w-2xl px-6 text-center">
             <h2 className="mb-4 font-[family-name:var(--font-display)] text-3xl font-bold tracking-tight sm:text-4xl">
               Don&apos;t miss your spot
             </h2>
-            <p className="mb-10 text-lg text-muted">
+            <p className="mb-8 text-lg text-muted">
               Join {totalSignups.toLocaleString()}+ others already on the waitlist
             </p>
             <a
               href="#signup"
-              className="btn-gradient inline-flex rounded-xl px-10 py-4 font-[family-name:var(--font-display)] text-[15px] font-semibold text-white"
+              className="btn-gradient btn-glow inline-flex rounded-xl px-10 py-4 font-[family-name:var(--font-display)] text-[15px] font-semibold text-white"
             >
               Join the Waitlist
             </a>
@@ -799,10 +820,11 @@ export function WaitlistApp() {
       )}
 
       {/* ========== FOOTER ========== */}
-      <footer className="border-t border-[var(--border)] bg-white py-10">
+      <footer className="relative bg-white py-10">
+        <div className="section-divider absolute inset-x-0 top-0" />
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 sm:flex-row sm:justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-[#A78BFA] font-[family-name:var(--font-display)] text-xs font-bold text-white">
+            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-[#F43F5E] font-[family-name:var(--font-display)] text-xs font-bold text-white">
               {WAITLIST_CONFIG.logoEmoji}
             </div>
             <span className="font-[family-name:var(--font-display)] text-sm font-semibold">

@@ -9,12 +9,12 @@ interface RewardTiersProps {
 
 const tierColors = [
   {
-    bg: "bg-violet-50",
-    hoverBg: "group-hover:bg-violet-50/80",
-    iconBg: "bg-violet-100 group-hover:bg-violet-200/70",
-    accent: "text-violet-600",
-    border: "group-hover:border-violet-200",
-    progress: "from-violet-500 to-violet-400",
+    bg: "bg-rose-50",
+    hoverBg: "group-hover:bg-rose-50/80",
+    iconBg: "bg-rose-100 group-hover:bg-rose-200/70",
+    accent: "text-rose-600",
+    border: "group-hover:border-rose-200",
+    progress: "from-rose-500 to-rose-400",
   },
   {
     bg: "bg-emerald-50",

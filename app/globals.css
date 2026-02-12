@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
-/* WaitLyst Light Theme v2 — Friendly Violet-Lavender */
+/* WaitLyst — Red & White Theme v2 */
 :root {
-  --background: #FAFAFF;
-  --foreground: #1A1735;
-  --muted: #7E7A94;
-  --accent: #7C5CFC;
-  --accent-strong: #6D4AFF;
-  --accent-light: #EDE9FE;
+  --background: #FFFBFB;
+  --foreground: #1C1017;
+  --muted: #8C7E84;
+  --accent: #E11D48;
+  --accent-strong: #BE123C;
+  --accent-light: #FFF1F2;
   --surface: #FFFFFF;
-  --surface-light: #F5F3FF;
-  --border: rgba(124, 92, 252, 0.1);
-  --success: #22C55E;
-  --warning: #F59E0B;
+  --surface-light: #FFF5F5;
+  --border: rgba(225, 29, 72, 0.08);
+  --success: #16A34A;
+  --warning: #EA580C;
 }
 
 @theme inline {
@@ -73,11 +73,6 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
 @keyframes breathe {
   0%, 100% { transform: scale(1); opacity: 0.6; }
   50% { transform: scale(1.1); opacity: 0.9; }
@@ -97,7 +92,6 @@ body {
 .animate-pulse-soft { animation: pulse-soft 2s ease-in-out infinite; }
 .animate-gradient { background-size: 200% 200%; animation: gradient-shift 3s ease infinite; }
 .animate-float { animation: float 4s ease-in-out infinite; }
-.animate-shimmer { background-size: 200% 100%; animation: shimmer 2s linear infinite; }
 .animate-breathe { animation: breathe 5s ease-in-out infinite; }
 .animate-blob { animation: blob-morph 8s ease-in-out infinite; }
 
@@ -114,30 +108,32 @@ body {
 /* --- Soft Card Shadow --- */
 .card-soft {
   background: var(--surface);
+  border-color: transparent;
   box-shadow:
-    0 1px 3px rgba(124, 92, 252, 0.04),
-    0 4px 16px rgba(124, 92, 252, 0.06);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+    0 1px 3px rgba(225, 29, 72, 0.04),
+    0 4px 16px rgba(225, 29, 72, 0.06);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
 }
 .card-soft:hover {
+  border-color: rgba(225, 29, 72, 0.12);
   box-shadow:
-    0 2px 6px rgba(124, 92, 252, 0.06),
-    0 8px 30px rgba(124, 92, 252, 0.1);
+    0 2px 8px rgba(225, 29, 72, 0.06),
+    0 12px 36px rgba(225, 29, 72, 0.10);
   transform: translateY(-2px);
 }
 
 /* --- Gradient Button --- */
 .btn-gradient {
   position: relative;
-  background: linear-gradient(135deg, var(--accent), #A78BFA, #F472B6);
+  background: linear-gradient(135deg, var(--accent), #F43F5E, #FB923C);
   background-size: 200% 200%;
   overflow: hidden;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(124, 92, 252, 0.25);
+  box-shadow: 0 4px 16px rgba(225, 29, 72, 0.25);
 }
 .btn-gradient:hover {
   background-position: 100% 0;
-  box-shadow: 0 6px 24px rgba(124, 92, 252, 0.35);
+  box-shadow: 0 6px 24px rgba(225, 29, 72, 0.35);
   transform: translateY(-1px);
 }
 .btn-gradient:active {
@@ -156,11 +152,11 @@ body {
   border-radius: inherit;
   background: linear-gradient(
     135deg,
-    rgba(124, 92, 252, 0.3),
-    rgba(167, 139, 250, 0.15),
-    rgba(244, 114, 182, 0.2),
-    rgba(167, 139, 250, 0.15),
-    rgba(124, 92, 252, 0.3)
+    rgba(225, 29, 72, 0.25),
+    rgba(244, 63, 94, 0.12),
+    rgba(251, 146, 60, 0.15),
+    rgba(244, 63, 94, 0.12),
+    rgba(225, 29, 72, 0.25)
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -172,11 +168,48 @@ body {
 /* --- Custom Scrollbar --- */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(124, 92, 252, 0.15); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(124, 92, 252, 0.3); }
+::-webkit-scrollbar-thumb { background: rgba(225, 29, 72, 0.12); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(225, 29, 72, 0.25); }
+
+/* --- Dot Grid Background --- */
+.dot-grid {
+  background-image: radial-gradient(rgba(225, 29, 72, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* --- Button Glow --- */
+.btn-glow {
+  box-shadow:
+    0 4px 16px rgba(225, 29, 72, 0.25),
+    0 0 48px rgba(225, 29, 72, 0.12);
+}
+.btn-glow:hover {
+  box-shadow:
+    0 6px 24px rgba(225, 29, 72, 0.35),
+    0 0 64px rgba(225, 29, 72, 0.18);
+}
+
+/* --- Section Divider --- */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(225, 29, 72, 0.12), transparent);
+}
+
+/* --- Decorative Quote --- */
+.quote-mark::before {
+  content: "\201C";
+  position: absolute;
+  top: -4px;
+  right: 16px;
+  font-size: 80px;
+  line-height: 1;
+  font-family: Georgia, serif;
+  color: rgba(225, 29, 72, 0.06);
+  pointer-events: none;
+}
 
 /* Selection */
 ::selection {
-  background: rgba(124, 92, 252, 0.2);
+  background: rgba(225, 29, 72, 0.15);
   color: var(--foreground);
 }
